@@ -29,5 +29,5 @@ steps:
     awsCredentials: 'AWS-test-connection'
     regionName: 'ap-south-1'
     bucketName: 'mytelmytestbucket'
-    sourceFolder: '$(Build.ArtifactStagingDirectory)/MyTelmyApp_$(Build.BuildId).zip'
+    sourceFolder: '$(Build.ArtifactStagingDirectory)'
     globExpressions: '**'
