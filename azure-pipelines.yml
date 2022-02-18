@@ -24,3 +24,12 @@ steps:
     bucketName: 'mytelmytestbucket'
     sourceFolder: '$(Build.ArtifactStagingDirectory)'
     globExpressions: '**'
+- task: CodeDeployDeployApplication@1
+  inputs:
+    awsCredentials: 'AWS-test-connection'
+    regionName: 'ap-south-1'
+    applicationName: 'Telmy-Dev'
+    deploymentGroupName: 'Telmy-Dev'
+    deploymentRevisionSource: 's3'
+    bucketName: 'mytelmytestbucket'
+    description: 'Telmy-Dev Deployment'
