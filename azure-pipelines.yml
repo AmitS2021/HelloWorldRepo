@@ -30,4 +30,7 @@ steps:
     regionName: 'ap-south-1'
     bucketName: 'mytelmytestbucket'
     sourceFolder: '$(Build.ArtifactStagingDirectory)'
-    globExpressions: '**'
+    globExpressions: |
+      *
+      !.git/**
+      !azure-pipelines.yml'
