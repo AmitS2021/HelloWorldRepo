@@ -24,3 +24,10 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/MyTelmyApp_$(Build.BuildId).zip'
     replaceExistingArchive: true
+- task: S3Upload@1
+  inputs:
+    awsCredentials: 'AWS-test-connection'
+    regionName: 'ap-south-1'
+    bucketName: 'mytelmytestbucket'
+    sourceFolder: '$(BuildArtifactStagingDirectory)/MyTelmyApp_$(Build.BuildId).zip'
+    globExpressions: '**'
