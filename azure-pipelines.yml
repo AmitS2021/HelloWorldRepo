@@ -10,12 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- 
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.Repository.LocalPath)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/MyTelmyApp_$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
 - task: S3Upload@1
   inputs:
@@ -24,6 +25,7 @@ steps:
     bucketName: 'mytelmytestbucket'
     sourceFolder: '$(Build.ArtifactStagingDirectory)'
     globExpressions: '**'
+    targetFolder: 'MyTelmyAppDeliveries'
 - task: CodeDeployDeployApplication@1
   inputs:
     awsCredentials: 'AWS-test-connection'
@@ -32,4 +34,5 @@ steps:
     deploymentGroupName: 'Telmy-Dev'
     deploymentRevisionSource: 's3'
     bucketName: 'mytelmytestbucket'
-    description: 'Telmy-Dev Deployment'
+    bundleKey: 'MyTelmyAppDeliveries'
+    description: 'Telmy-Dev deployment'
