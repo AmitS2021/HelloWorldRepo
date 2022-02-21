@@ -15,7 +15,7 @@ steps:
     rootFolderOrFile: '$(Build.Repository.LocalPath)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/MyTelmyApp_$(Build.BuildId).zip'
     replaceExistingArchive: true
 - task: S3Upload@1
   inputs:
