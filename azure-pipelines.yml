@@ -33,5 +33,5 @@ steps:
     deploymentGroupName: 'Telmy-Dev'
     deploymentRevisionSource: 's3'
     bucketName: 'mytelmytestbucket'
-    bundleKey: 'MyTelmyAppDeliveries'
+    bundleKey: 'MyTelmyAppDeliveries/MyTelmyApp_$(Build.BuildId).zip'
     description: 'Telmy-Dev deployment'
