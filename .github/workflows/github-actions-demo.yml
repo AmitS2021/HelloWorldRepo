@@ -10,7 +10,7 @@ jobs:
       - name: Azure Pipelines Action
         uses: Azure/pipelines@v1.2
         with:
-          azure-devops-project-url: 'https://dev.azure.com/organization/project-name'
+          azure-devops-project-url: 'https://dev.azure.com/schlesingergroup/Demo'
           azure-pipeline-name: 'Telmy Test Release Pipeline' # name of the Azure pipeline to be triggered
           azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
       - run: echo "🍏 This job's status is ${{ job.status }}."
