@@ -1,0 +1,16 @@
+file_exists_behavior: OVERWRITE
+files: 
+  - 
+    destination: /var/www/html/telmyportal
+    source: /
+hooks: 
+  BeforeInstall:
+    -
+      location: /before.sh
+      runas: root
+  AfterInstall: 
+    - 
+      location: /after.sh
+      runas: ubuntu
+os: linux
+version: 0.0
