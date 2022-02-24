@@ -35,3 +35,25 @@ steps:
     bucketName: 'mytelmytestbucket'
     bundleKey: 'MyTelmyAppDeliveries/MyTelmyApp_$(Build.BuildId).zip'
     description: 'Telmy Dev deployment'
+
+- task: CodeDeployDeployApplication@1
+  inputs:
+    awsCredentials: 'AWS-test-connection'
+    regionName: 'ap-south-1'
+    applicationName: 'Telmy'
+    deploymentGroupName: 'Staging'
+    deploymentRevisionSource: 's3'
+    bucketName: 'mytelmytestbucket'
+    bundleKey: 'MyTelmyAppDeliveries/MyTelmyApp_$(Build.BuildId).zip'
+    description: 'Telmy Staging deployment'
+
+- task: CodeDeployDeployApplication@1
+  inputs:
+    awsCredentials: 'AWS-test-connection'
+    regionName: 'ap-south-1'
+    applicationName: 'Telmy'
+    deploymentGroupName: 'Production'
+    deploymentRevisionSource: 's3'
+    bucketName: 'mytelmytestbucket'
+    bundleKey: 'MyTelmyAppDeliveries/MyTelmyApp_$(Build.BuildId).zip'
+    description: 'Telmy Production deployment'
