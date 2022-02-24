@@ -29,9 +29,9 @@ steps:
   inputs:
     awsCredentials: 'AWS-test-connection'
     regionName: 'ap-south-1'
-    applicationName: 'Telmy-Dev'
-    deploymentGroupName: 'Telmy-Dev_DepGroup'
+    applicationName: 'Telmy'
+    deploymentGroupName: 'Dev'
     deploymentRevisionSource: 's3'
     bucketName: 'mytelmytestbucket'
     bundleKey: 'MyTelmyAppDeliveries/MyTelmyApp_$(Build.BuildId).zip'
-    description: 'Telmy-Dev deployment'
+    description: 'Telmy Dev deployment'
